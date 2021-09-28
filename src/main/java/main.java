@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class main {
 	public static void main(String[] args) {
-		String username="ege.yilmaz";
-		String password = "123eg-123!";
+		String username="";
+		String password = "";
 		LdapAuth ldapAuth = new LdapAuth();
 		int checkAuth=ldapAuth.setUpLdapContextWithUsernameAndPassword(username,password);
 		Hashtable<String,String> attributeList = null;
