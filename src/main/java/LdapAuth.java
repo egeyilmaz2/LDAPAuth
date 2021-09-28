@@ -31,9 +31,9 @@ public class LdapAuth {
 		try {
 			Hashtable<String,String> authEnv = new Hashtable<String,String>();
 			authEnv.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-			authEnv.put(Context.PROVIDER_URL, "ldap://192.168.10.5");
+			authEnv.put(Context.PROVIDER_URL, "ldap://youradress");
 			authEnv.put(Context.SECURITY_AUTHENTICATION, "simple");
-			authEnv.put(Context.SECURITY_PRINCIPAL, username+"@smartict.com.tr");
+			authEnv.put(Context.SECURITY_PRINCIPAL, username+"@example.com");
 			authEnv.put(Context.SECURITY_CREDENTIALS, password);
 			try {
 				setLdapContext(new InitialLdapContext(authEnv,null));
@@ -55,7 +55,7 @@ public class LdapAuth {
 		controls.setReturningAttributes(testAllAttr);
 		Hashtable<String,String > attrList=new Hashtable<>();
 		try{
-			NamingEnumeration<SearchResult> answer = getLdapContext().search("dc=smartict,dc=com,dc=tr","sAMAccountName="+username,controls);//Kullanıcı adı ile aratma yapar
+			NamingEnumeration<SearchResult> answer = getLdapContext().search("dc=yourDcName,dc=com,dc=tr","sAMAccountName="+username,controls);//search by sent username
 			if(answer.hasMore()){
 				Attributes attributes = answer.next().getAttributes();
 				NamingEnumeration<String> attributesIDs= attributes.getIDs();
@@ -66,7 +66,7 @@ public class LdapAuth {
 				System.out.println();
 			}
 		}catch(Throwable e){
-			e.printStackTrace();//Context hatalı ise buraya düşer
+			e.printStackTrace();//If context is wrong , you get this
 		}
 		return attrList;
 	}
