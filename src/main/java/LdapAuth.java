@@ -44,7 +44,7 @@ public class LdapAuth {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return EnumAuthentication.AUTHENTICATION_CONFIG_ERROR.getCode();//configuration hatalı ise buraya düşer (Context configuration)
+		return EnumAuthentication.AUTHENTICATION_CONFIG_ERROR.getCode();//configuration error (Context configuration)
 	}
 	public Hashtable<String,String> getUserInfoWithUsernameWithAuthenticatedLdapContext(String username){
 		SearchControls controls = new SearchControls();
