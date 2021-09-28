@@ -55,7 +55,7 @@ public class LdapAuth {
 		controls.setReturningAttributes(testAllAttr);
 		Hashtable<String,String > attrList=new Hashtable<>();
 		try{
-			NamingEnumeration<SearchResult> answer = getLdapContext().search("dc=yourDcName,dc=com,dc=tr","sAMAccountName="+username,controls);//search by sent username
+			NamingEnumeration<SearchResult> answer = getLdapContext().search("dc=yourDcName,dc=com,dc=ext","sAMAccountName="+username,controls);//search by sent username
 			if(answer.hasMore()){
 				Attributes attributes = answer.next().getAttributes();
 				NamingEnumeration<String> attributesIDs= attributes.getIDs();
