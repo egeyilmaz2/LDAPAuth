@@ -11,7 +11,7 @@ public class AttributesMapped {
 	private String address;
 	public AttributesMapped(Hashtable<String,String> attributes){
 		this.username=attributes.get("sAMAccountName");
-		this.name=setName(attributes.get("displayName"));//büyük harf denetimi gerekli (isim için hani özellik kullanılıyor , kontrol et)
+		this.name=setName(attributes.get("displayName"));//set just the name
 		this.surname=attributes.get("sn");
 		this.mobilePhone=attributes.get("telephoneNumber");
 		this.address=attributes.get("streetAddress");
